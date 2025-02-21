@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from routers import upload
+from endpoints import upload
 
 app = FastAPI()
 
-# Incluir el router
+# Incluir los routers
 app.include_router(upload.router, prefix="/api", tags=["upload"])
 
 @app.get("/")
