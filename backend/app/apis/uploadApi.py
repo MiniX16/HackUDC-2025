@@ -1,6 +1,6 @@
 import requests
+from config import IMGBB_API_KEY
 
-IMGBB_API_KEY = "27cb3e6e85cb8e60e3430ee3e69a10fb"
 IMGBB_UPLOAD_URL = "https://api.imgbb.com/1/upload"
 
 def upload_to_imgbb(image_file):
