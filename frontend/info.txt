@@ -1,0 +1,43 @@
+npm run dev
+Investigar Tailwind CSS
+
+Clase	Tema	Objetivo
+1	Introducción e Instalación	Entender qué es Tailwind, sus ventajas e instalarlo correctamente.
+2	Fundamentos: Utilidades Básicas	Aprender a usar colores, márgenes, padding, texto y fondo.
+3	Flexbox y Grid con Tailwind	Dominar layouts flexibles y rejillas sin escribir CSS.
+4	Tipografía Profesional	Control total sobre fuentes, tamaños, espaciados y personalización.
+5	Botones, Tarjetas y Componentes Comunes	Crear botones, cards, formularios y diseños reutilizables.
+6	Formularios Avanzados	Inputs, selects, validaciones, focus, disabled, formularios adaptativos.
+7	Responsive Design	Diseñar apps que se adapten a móviles, tablets y escritorio con sm, md, lg.
+8	Dark Mode y Temas Personalizados	Implementar modo oscuro y personalizar temas de color.
+9	Animaciones y Transiciones	Añadir efectos como hover, focus, transformaciones y transiciones fluidas.
+10	Personalización de Tailwind	Configurar tailwind.config.js, añadir tus colores y fuentes.
+11	Componentes con Shadcn/UI y Tailwind	Usar Shadcn/UI para crear dashboards y aplicaciones modernas.
+12	Proyecto Final: Dashboard Profesional	Construir un dashboard real usando todo lo aprendido.
+------------------------------------------------------------------Redux----------------------------------------------------------------------------
+
+Slice = Estado + Funciones	Define cómo cambia el estado.
+Selector = Lee parte del estado	Para acceder de forma fácil al estado en el componente.
+useSelector()	Lee el estado desde el componente.
+useDispatch()	Ejecuta acciones para cambiar el estado.
+
+src/
+│
+├── api/                # Servicios y llamadas a API
+│   └── postsApi.js
+│
+├── components/         # Componentes reutilizables
+│   └── Navbar.jsx
+│
+├── pages/              # Páginas (vistas)
+│   ├── Home.jsx
+│   ├── Posts.jsx
+│   └── Perfil.jsx
+│
+├── store/              # Redux Toolkit Slices
+│   └── usuarioSlice.js
+│
+├── App.jsx              # Definir rutas
+└── main.jsx             # Providers
+
+*Usar context para estados sencillos*

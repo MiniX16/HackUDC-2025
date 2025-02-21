@@ -1,0 +1,21 @@
+nav {
+  background: #007bff;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
