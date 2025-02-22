@@ -38,9 +38,8 @@ def image_to_base64(image_url):
         return encoded_string
     return "No encontrado"
 
-def scrape_zara(html_file):
-    with open(html_file, "r", encoding="utf-8") as file:
-        soup = BeautifulSoup(file, "html.parser")
+def scrape_zara(html_txt):
+    soup = BeautifulSoup(html_txt, "html.parser")
 
     # Extraer nombre del producto
     product_name = soup.find("meta", property="og:title")

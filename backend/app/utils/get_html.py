@@ -20,7 +20,7 @@ def get_html(url, output_file="pagina_completa.html"):
     driver.get(url)
     
     # Esperar a que la página cargue completamente
-    time.sleep(5)
+    time.sleep(7)
     
     # Obtener el HTML completo
     html = driver.page_source
