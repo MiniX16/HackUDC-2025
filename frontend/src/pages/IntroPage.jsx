@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import UploadImage from "../components/Uploadimage";
 import { processImage } from "../services/api";
 import "../styles.css";
@@ -44,6 +44,22 @@ const IntroPage = () => {
     }
   };
 
+  // Efecto para crear scroll infinito
+  useEffect(() => {
+    rowRefs.forEach((rowRef, rowIndex) => {
+      const row = rowRef.current;
+      if (row) {
+        const handleScroll = () => {
+          if (row.scrollLeft + row.clientWidth >= row.scrollWidth - 100) {
+            row.scrollLeft = 0;
+          }
+        };
+        row.addEventListener("scroll", handleScroll);
+        return () => row.removeEventListener("scroll", handleScroll);
+      }
+    });
+  }, [rowRefs]);
+
   return (
     <div className="intro-container">
       <h1 className="logo">INDITEX</h1>
@@ -64,8 +80,7 @@ const IntroPage = () => {
                 src={src}
                 alt={`Prenda ${index + 1}`}
                 className="moving-image"
-                //onClick={() => setSelectedImage(src)}
-                onClick={(event) => handleImageClick(event, src)}
+                onClick={() => handleImageClick(src)}
               />
             ))}
           </div>
