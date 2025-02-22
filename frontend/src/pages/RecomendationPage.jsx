@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import "../styles/RecomendationPage.css";
 import { getProducts } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const useParallax = (value, distance) => {
   return useTransform(value, [0, 1], [-distance, distance]);
@@ -11,6 +12,7 @@ const Image = ({ product }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ container: ref });
   const y = useParallax(scrollYProgress, 100);
+  const navigate = useNavigate();
 
   return (
     <motion.div ref={ref} className="img-container" style={{ y }}>
@@ -26,6 +28,7 @@ const Image = ({ product }) => {
         </a>
         <p>{product.price} €</p>
         <p>{product.brand}</p>
+        <button className="outfit-button" onClick={() => navigate("/OutfitRecommendation")}>Crear Outfit</button>
       </div>
     </motion.div>
   );
