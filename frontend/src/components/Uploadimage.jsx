@@ -23,6 +23,7 @@ const UploadImage = ({ selectedImage }) => {
       setLoading(true);
       const base64 = await convertToBase64(file);
       setImage(base64);
+      console.log(base64);
 
       const response = await uploadImage(base64);
       setResponse(response);
@@ -40,15 +41,14 @@ const UploadImage = ({ selectedImage }) => {
     try {
       setLoading(true);
   
-      const formattedPrice = price ? parseFloat(price) : null; // ✅ Convierte price a número o null
-  
-      console.log("Subiendo imagen con precio:", formattedPrice); // 🛠️ Depuración
+      const formattedPrice = price ? parseFloat(price) : 0; // ✅ Convierte price a número o null
+    
   
       const response = await uploadImage(image, formattedPrice);
       setResponse(response);
       setLoading(false);
   
-      navigate("/recomendation"); // Redirigir solo si no hay errores
+      navigate("/recomendation", {state: {response}}); // Redirigir solo si no hay errores
     } catch (error) {
       console.error("Error al subir la imagen:", error);
       setLoading(false);

@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import "../styles/RecomendationPage.css";
-import { getProducts } from "../services/api";
-import { useNavigate } from "react-router-dom";
+import { processImage } from "../services/api";
+import { useNavigate , useLocation } from "react-router-dom";
 
 const useParallax = (value, distance) => {
   return useTransform(value, [0, 1], [-distance, distance]);
@@ -44,17 +44,15 @@ const RecomendationPage = () => {
     restDelta: 0.001,
   });
 
+  const location = useLocation();
+  const { response } = location.state || {};
+
+
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const suggestedProducts = await getProducts(20);
-        setRowImages(suggestedProducts);
-      } catch (error) {
-        console.error("Error obteniendo productos:", error);
-      }
-    };
-    fetchProducts();
-  }, []);
+    if (response && response.products) {
+      setRowImages(response.products);
+    }
+  }, [response]);
 
   return (
     <div id="example" className="scroll-container" ref={containerRef}>
