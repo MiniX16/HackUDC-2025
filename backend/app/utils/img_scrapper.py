@@ -1,6 +1,7 @@
 import base64
 from bs4 import BeautifulSoup
 import requests
+import re
 
 def image_to_base64(image_url):
     """Descarga una imagen desde una URL y la convierte a Base64."""
@@ -20,12 +21,11 @@ def scrape_zara(html_file):
 
     # Extraer precio
     script_tag = soup.find("script", string=lambda t: t and "mainPrice" in t)
+    product_price = "No encontrado"
     if script_tag:
-        import re
         match = re.search(r'"mainPrice":(\d+\.\d+)', script_tag.text)
-        product_price = match.group(1) if match else "No encontrado"
-    else:
-        product_price = "No encontrado"
+        if match:
+            product_price = match.group(1)
 
     # Extraer descripción
     product_description = soup.find("meta", property="og:description")
@@ -37,17 +37,23 @@ def scrape_zara(html_file):
 
     # Extraer URL de la imagen de la prenda y convertir a base64
     image_tag = soup.find("img", class_="media-image__image")
-
-    print(image_tag)
     image_base64 = image_to_base64(image_tag["src"]) if image_tag else "No encontrado"
 
     # Extraer categoría
-    product_category = soup.find("script", text=lambda t: t and "categoryName" in t)
-    if product_category:
-        match = re.search(r'"categoryName":"(.*?)"', product_category.text)
-        product_category = match.group(1) if match else "No encontrado"
-    else:
-        product_category = "No encontrado"
+    script_category = soup.find("script", text=lambda t: t and "categoryName" in t)
+    product_category = "No encontrado"
+    if script_category:
+        match = re.search(r'"categoryName":"(.*?)"', script_category.text)
+        if match:
+            product_category = match.group(1)
+
+    # Extraer color
+    script_color = soup.find("script", text=lambda t: t and '"color":' in t)
+    product_color = "No encontrado"
+    if script_color:
+        match = re.search(r'"color":"(.*?)"', script_color.text)
+        if match:
+            product_color = match.group(1)
 
     # Imprimir resultados
     return {
@@ -56,7 +62,8 @@ def scrape_zara(html_file):
         "Descripción": product_description,
         "Imagen Base64": product_image,
         "Imagen Prenda Base64": image_base64,
-        "Categoría": product_category
+        "Categoría": product_category,
+        "Color": product_color
     }
 
 # Ejecutar el scraper

@@ -3,8 +3,10 @@ from get_html import get_html
 from img_scrapper import scrape_zara
 
 def process_products(json_file, output_json="output.json", max_retries=3):
-    """Lee un JSON con productos, obtiene el HTML y extrae las imágenes en base64, reintentando si no se encuentran. 
-       Si tras todos los intentos no se consigue la imagen, elimina el producto del resultado."""
+    """Lee un JSON con productos, obtiene el HTML y extrae la imagen, el color y la categoría en base64.
+       Reintenta hasta 'max_retries' veces si no encuentra la imagen. Si tras todos los intentos no se
+       consigue la imagen, elimina el producto del resultado."""
+    
     with open(json_file, "r", encoding="utf-8") as f:
         products = json.load(f)
     
@@ -16,12 +18,17 @@ def process_products(json_file, output_json="output.json", max_retries=3):
         
         retries = 0
         while retries < max_retries:
-            get_html(url)
-            product_info = scrape_zara("pagina_completa.html")
+            get_html(url)  # Obtener el HTML de la página
+            product_info = scrape_zara("pagina_completa.html")  # Extraer la información
+            
             image_base64 = product_info.get("Imagen Base64", "No encontrado")
+            product_color = product_info.get("Color", "No encontrado")
+            product_category = product_info.get("Categoría", "No encontrado")
             
             if image_base64 != "No encontrado":
                 product["image_base64"] = image_base64
+                product["color"] = product_color
+                product["category"] = product_category
                 filtered_products.append(product)  # Agregar producto solo si tiene imagen válida
                 break  # Salir del bucle si se encuentra la imagen
             
