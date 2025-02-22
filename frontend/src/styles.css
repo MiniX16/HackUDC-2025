@@ -45,20 +45,22 @@ body {
   width: 100vw;
   gap: 20px;
   padding: 10px 0;
-  overflow-x: scroll;
-  scrollbar-width: none;
-  /* Ocultar scrollbar en Firefox */
-  -ms-overflow-style: none;
-  /* Ocultar scrollbar en Edge */
-  transition: transform 0.5s ease-in-out;
+  overflow-x: auto; /* Permitir scroll sin mostrar barra */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Deslizamiento suave en móviles */
 }
 
-/* Ocultar scrollbar en Chrome */
+/* Ocultar scrollbar en todos los navegadores */
 .image-row::-webkit-scrollbar {
-  display: none;
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
 }
 
-
+.image-row {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* Edge e Internet Explorer */
+}
 
 .row-1 {
   animation: move-left 15s linear infinite;
