@@ -37,7 +37,6 @@ def search_products_by_image(image_url):
     """Envía la URL de la imagen a la API de Inditex y devuelve los productos similares."""
     update_api_key()
     api_key = os.getenv("INDITEX_API_JWT", "").strip()
-    print(api_key)
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
@@ -49,6 +48,7 @@ def search_products_by_image(image_url):
     }
 
     response = requests.get(INDITEX_SEARCH_IMAGE_URL, params=params, headers=headers)
+
 
     if response.status_code == 200:
         return response.json()
@@ -62,7 +62,7 @@ def search_products_by_text(query):
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+        "User-Agent": "PostmanRuntime/7.31.1"
     }
 
     params = {
@@ -70,10 +70,6 @@ def search_products_by_text(query):
     }
 
     response = requests.get(INDITEX_SEARCH_URL, params=params, headers=headers)
-
-    print(f"Response Status: {response.status_code}")
-    print(f"Response Headers: {response.headers}")
-    print(f"Response Content: {response.text}")
 
     if response.status_code == 200:
         return response.json()

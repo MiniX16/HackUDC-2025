@@ -7,6 +7,6 @@ def process_upload(image_base64, price):
     products = search_products_by_image(image_url)  # Buscar productos en Inditex con la URL
 
     # Filtrar productos por precio
-    filtered_products = [product for product in products if product["price"]["value"]["current"] <= price]
+    filtered_products = [product for product in products if product["price"]["value"]["current"] <= price or price == 0]
 
     return filtered_products  # Devolver solo productos con precio menor o igual al límite
