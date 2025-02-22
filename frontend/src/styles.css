@@ -47,6 +47,7 @@ body {
   overflow-x: scroll;
   scrollbar-width: none; /* Ocultar scrollbar en Firefox */
   -ms-overflow-style: none; /* Ocultar scrollbar en Edge */
+  transition: transform 0.5s ease-in-out;
 }
 
 /* Ocultar scrollbar en Chrome */
