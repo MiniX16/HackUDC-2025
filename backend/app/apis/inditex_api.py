@@ -87,6 +87,8 @@ def search_products_by_text(query):
 
     response = requests.get(INDITEX_SEARCH_URL, params=params, headers=headers)
 
+    print(response.json())
+
     if response.status_code == 200:
         return response.json()
     else:
