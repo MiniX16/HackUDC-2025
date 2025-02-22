@@ -22,6 +22,7 @@ body {
   top: 10px;
   left: 20px;
   z-index: 2;
+  pointer-events: none;
 }
 
 /* Fondo animado */
@@ -57,16 +58,18 @@ body {
   display: none;
 }
 
+
+
 .row-1 {
-  animation: move-left 20s linear infinite;
+  animation: move-left 15s linear infinite;
 }
 
 .row-2 {
-  animation: move-right 20s linear infinite;
+  animation: move-right 15s linear infinite;
 }
 
 .row-3 {
-  animation: move-left 20s linear infinite;
+  animation: move-left 15s linear infinite;
 }
 
 /* Imágenes en movimiento */
@@ -225,4 +228,10 @@ body {
 
 .confirm-button:hover {
   background-color: #333;
+}
+
+.title,
+.icon-container span,
+.price-input label {
+  user-select: none;
 }

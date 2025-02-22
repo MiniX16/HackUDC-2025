@@ -1,0 +1,116 @@
+/* Contenedor principal */
+.recomendation-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f1eb;
+  min-height: 100vh;
+}
+
+/* Logo */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de filas */
+.rows-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Filas de imágenes con scroll manual */
+.image-row {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 80%;
+  padding: 10px;
+  gap: 15px;
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
+}
+
+/* Ocultar scrollbar en Chrome */
+.image-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Imágenes */
+.scroll-image {
+  width: 180px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.scroll-image:hover {
+  transform: scale(1.1);
+}
+
+/* ===== MODAL ===== */
+
+/* Fondo oscuro detrás del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Contenedor del modal */
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagen dentro del modal */
+.modal-image {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Información del producto */
+.modal-info {
+  text-align: left;
+}
+
+.modal-info h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.modal-info p {
+  margin: 5px 0;
+}
+
+.modal-info a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.modal-info a:hover {
+  color: #555;
+  border-bottom: 2px solid #555;
+}

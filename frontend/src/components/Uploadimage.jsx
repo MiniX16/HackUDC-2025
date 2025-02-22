@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { uploadImage } from "../services/api";
 import { convertToBase64 } from "../utils/convertToBase64";
+import { useNavigate } from "react-router-dom";
 import "../styles.css";
 
 const UploadImage = ({ selectedImage }) => {
@@ -8,6 +9,7 @@ const UploadImage = ({ selectedImage }) => {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
   const [price, setPrice] = useState(""); // Permitir entrada de número
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (selectedImage) {
@@ -28,10 +30,10 @@ const UploadImage = ({ selectedImage }) => {
     }
   };
 
-  const handleConfirm = () => {
-    console.log("Imagen confirmada:", image);
-    console.log("Precio ingresado:", price);
-    // Aquí podrías enviar los datos al backend si es necesario
+
+  const handleConfirmClick = () => {
+    // Redirigir a la página de recomendaciones
+    navigate("/recomendation");
   };
 
   return (
@@ -85,13 +87,13 @@ const UploadImage = ({ selectedImage }) => {
           />
         </div>
 
-        {/* Botón Confirmar */}
-        <button className="confirm-button" onClick={handleConfirm}>
-          Confirmar
-        </button>
-      </div>
+       
+        <button className="confirm-button" onClick={handleConfirmClick}>
+            Confirmar
+          </button>
+              </div>
 
-      {/* Mostrar la imagen procesada desde el backend */}
+              {/* Mostrar la imagen procesada desde el backend */}
       {response?.image && (
         <div className="result-container">
           <h3>Imagen procesada:</h3>
