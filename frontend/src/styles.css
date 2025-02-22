@@ -45,14 +45,28 @@ body {
   gap: 20px;
   padding: 10px 0;
   overflow-x: scroll;
-  scrollbar-width: none; /* Ocultar scrollbar en Firefox */
-  -ms-overflow-style: none; /* Ocultar scrollbar en Edge */
+  scrollbar-width: none;
+  /* Ocultar scrollbar en Firefox */
+  -ms-overflow-style: none;
+  /* Ocultar scrollbar en Edge */
   transition: transform 0.5s ease-in-out;
 }
 
 /* Ocultar scrollbar en Chrome */
 .image-row::-webkit-scrollbar {
   display: none;
+}
+
+.row-1 {
+  animation: move-left 20s linear infinite;
+}
+
+.row-2 {
+  animation: move-right 20s linear infinite;
+}
+
+.row-3 {
+  animation: move-left 20s linear infinite;
 }
 
 /* Imágenes en movimiento */
@@ -65,9 +79,33 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
+
+
 .moving-image:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+
+
+/* Animaciones */
+@keyframes move-left {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes move-right {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
 }
 
 /* Contenedor de UploadImage */
@@ -132,3 +170,59 @@ body {
   margin-top: 10px;
 }
 
+/* Filtro de precio */
+.price-input {
+  margin-top: 15px;
+  margin-right: 18px;
+  text-align: center;
+}
+
+.price-input label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.price-input input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  outline: none;
+  background-color: #f9f9f9;
+  appearance: textfield;
+  /* Oculta las flechas en la mayoría de navegadores */
+}
+
+/* Ocultar flechas de incremento/decremento en Chrome, Safari, Edge y Opera */
+.price-input input::-webkit-inner-spin-button,
+.price-input input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Ocultar flechas en Firefox */
+.price-input input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Botón Confirmar */
+.confirm-button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #000;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.confirm-button:hover {
+  background-color: #333;
+}

@@ -1,41 +1,37 @@
-import { useState, useEffect } from "react"; 
-import { uploadImage, processImage } from "../services/api"; //  funciones de la API
-import { convertToBase64 } from "../utils/convertToBase64"; // Función para convertir la imagen a base64
+import { useState, useEffect } from "react";
+import { uploadImage } from "../services/api";
+import { convertToBase64 } from "../utils/convertToBase64";
 import "../styles.css";
 
-// Componente para subir una imagen y mostrarla
 const UploadImage = ({ selectedImage }) => {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
+  const [price, setPrice] = useState(""); // Permitir entrada de número
 
-  // Procesar la imagen seleccionada
   useEffect(() => {
     if (selectedImage) {
-      handleProcessImage(selectedImage);
+      setImage(selectedImage);
     }
   }, [selectedImage]);
 
-  // Manejar el cambio y envio de la imagen al backend
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
       setLoading(true);
-      const base64 = await convertToBase64(file); // Convertimos la imagen a base64
+      const base64 = await convertToBase64(file);
       setImage(base64);
 
-      const response = await uploadImage(base64); // Enviamos la imagen al backend
+      const response = await uploadImage(base64);
       setResponse(response);
       setLoading(false);
     }
   };
 
-  // Procesar la imagen del backend
-  const handleProcessImage = async (imageBase64) => {
-    setLoading(true);
-    const response = await processImage(imageBase64); // Enviamos la imagen base64 al backend
-    setResponse(response);
-    setLoading(false);
+  const handleConfirm = () => {
+    console.log("Imagen confirmada:", image);
+    console.log("Precio ingresado:", price);
+    // Aquí podrías enviar los datos al backend si es necesario
   };
 
   return (
@@ -74,6 +70,25 @@ const UploadImage = ({ selectedImage }) => {
             onChange={handleImageChange}
           />
         </label>
+
+        {/* Nuevo Input para escribir el precio */}
+        <div className="price-input">
+          <label htmlFor="price">Ingrese el precio:</label>
+          <input
+            id="price"
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            
+            min="0"
+            
+          />
+        </div>
+
+        {/* Botón Confirmar */}
+        <button className="confirm-button" onClick={handleConfirm}>
+          Confirmar
+        </button>
       </div>
 
       {/* Mostrar la imagen procesada desde el backend */}
