@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import "../styles/RecomendationPage.css";
 import { getProducts } from "../services/api";
@@ -21,6 +20,13 @@ const Image = ({ product }) => {
         className="scroll-image"
         layoutId={`modal-${product.id}`}
       />
+      <div className="overlay">
+        <a href={product.link} target="_blank" rel="noopener noreferrer" className="product-link">
+          <p>{product.name}</p>
+        </a>
+        <p>{product.price} €</p>
+        <p>{product.brand}</p>
+      </div>
     </motion.div>
   );
 };
@@ -53,58 +59,10 @@ const RecomendationPage = () => {
         <Image key={product.id} product={product} />
       ))}
       <motion.div className="progress" style={{ scaleX }} />
-      <StyleSheet />
+      
     </div>
   );
 };
 
-function StyleSheet() {
-  return (
-    <style>{`
-        html, body {
-            height: 100%;
-            overflow: hidden;
-            scroll-behavior: smooth;
-        }
-
-        .scroll-container {
-            height: 100vh;
-            overflow-y: auto;
-            scroll-snap-type: y mandatory;
-        }
-
-        .img-container {
-            height: 100vh;
-            scroll-snap-align: start;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .img-container img {
-            width: 300px;
-            height: 400px;
-        }
-
-        @media (max-width: 500px) {
-            .img-container img {
-                width: 150px;
-                height: 200px;
-            }
-        }
-
-        .progress {
-            position: fixed;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: #000000;
-            bottom: 50px;
-            transform-origin: left;
-        }
-    `}</style>
-  );
-}
 
 export default RecomendationPage;
