@@ -54,7 +54,7 @@ const IntroPage = () => {
 
   return (
     <div className="intro-container">
-      <h1 className="logo">INDITEX</h1>
+      <h1 className="logo">INDEEPTEX</h1>
       <div className="background-container">
         {rowImages.map((images, rowIndex) => (
           <div key={rowIndex} className={`image-row row-${rowIndex + 1}`} ref={rowRefs[rowIndex]}>
