@@ -19,6 +19,7 @@ const RecomendationPage = () => {
     const [rowImages, setRowImages] = useState([[], [], []]); // Inicialmente vacío
     const [selectedImage, setSelectedImage] = useState(null);
     const rowRefs = [useRef(null), useRef(null), useRef(null)];
+    const navigate = useNavigate()
   
     // Obtener productos sugeridos al cargar la página
     useEffect(() => {
@@ -109,7 +110,7 @@ const RecomendationPage = () => {
                   <a href={selectedImage.link} target="_blank" rel="noopener noreferrer">
                     Ver en tienda
                   </a>
-                  <button className="recommend-button" onClick={() => navigate(`/outfit-recommendation`)}>
+                  <button className="recommend-button" onClick={() => navigate(`/outfit-recommendation/:${selectedImage.id}`)}>
                     RECOMIÉNDAME UN OUTFIT CON ESTO
                   </button>
                 </div>

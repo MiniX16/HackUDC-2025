@@ -42,7 +42,8 @@ body {
 .image-row {
   display: flex;
   white-space: nowrap;
-  width: 100vw;
+  /*width: 100vw;*/
+  width: 300%;
   gap: 20px;
   padding: 10px 0;
   overflow-x: auto; /* Permitir scroll sin mostrar barra */
@@ -64,14 +65,17 @@ body {
 
 .row-1 {
   animation: move-left 15s linear infinite;
+  animation-delay: -5.5s;
 }
 
 .row-2 {
-  animation: move-right 15s linear infinite;
+  animation: move-right 15s linear infinite;  
+  animation-delay: -5.5s;
 }
 
 .row-3 {
   animation: move-left 15s linear infinite;
+  animation-delay: -5.5s;
 }
 
 /* Imágenes en movimiento */
@@ -95,21 +99,19 @@ body {
 /* Animaciones */
 @keyframes move-left {
   from {
-    transform: translateX(100%);
+    transform: translateX(50%);
   }
-
   to {
-    transform: translateX(-100%);
+    transform: translateX(calc(-50% - 5px)); /* Ajuste fino para evitar cortes */
   }
 }
 
 @keyframes move-right {
   from {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
-
   to {
-    transform: translateX(100%);
+    transform: translateX(calc(50% + 5px));
   }
 }
 
