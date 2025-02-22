@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from bd.models import Product
+from sqlalchemy.sql.expression import func
 
 def create_product(db: Session, product_data: dict):
     """Guarda un producto en la base de datos."""
@@ -18,6 +19,10 @@ def create_product(db: Session, product_data: dict):
     db.commit()
     db.refresh(db_product)
     return db_product
+
+def get_random_products_from_db(db: Session, n: int):
+    """Obtiene n productos aleatorios de la base de datos."""
+    return db.query(Product).order_by(func.random()).limit(n).all()
 
 def get_products_by_price(db: Session, max_price: float):
     """Obtiene productos con precio menor o igual al especificado."""

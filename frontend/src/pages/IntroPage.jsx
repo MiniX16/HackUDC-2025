@@ -13,7 +13,7 @@ const IntroPage = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const newImages = await getProducts(20); // Obtener imágenes del backend
+        const newImages = await getProducts(5); // Obtener imágenes del backend
         if (newImages.length > 0) {
           const repeatedImages = [...newImages, ...newImages, ...newImages, ...newImages]; // Más repeticiones para asegurar la continuidad
           setRowImages([repeatedImages, repeatedImages, repeatedImages]); // Asignar imágenes a cada fila

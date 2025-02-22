@@ -65,7 +65,9 @@ export const getProducts = async (i) => {
     return data.map(product => ({
       id: product.id,
       name: product.name,
-      price: product.price.value.current,
+      price: product.price,
+      currency: product.currency,
+      description:product.description,
       link: product.link,
       brand: product.brand,
       categories: product.categories,

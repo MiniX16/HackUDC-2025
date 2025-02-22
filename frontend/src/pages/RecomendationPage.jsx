@@ -26,7 +26,7 @@ const Image = ({ product }) => {
         <a href={product.link} target="_blank" rel="noopener noreferrer" className="product-link">
           <p>{product.name}</p>
         </a>
-        <p>{product.price} €</p>
+        <p>{product.price} </p>
         <p>{product.brand}</p>
         <button className="outfit-button" onClick={() => navigate("/outfit-recommendation/:${selectedImage.id}")}>Crear Outfit</button>
       </div>
