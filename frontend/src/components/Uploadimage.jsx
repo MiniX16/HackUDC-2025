@@ -31,10 +31,31 @@ const UploadImage = ({ selectedImage }) => {
   };
 
 
-  const handleConfirmClick = () => {
-    // Redirigir a la página de recomendaciones
-    navigate("/recomendation");
+  const handleUploadAndNavigate = async () => {
+    if (!image) {
+      alert("Selecciona una imagen antes de continuar.");
+      return;
+    }
+  
+    try {
+      setLoading(true);
+  
+      const formattedPrice = price ? parseFloat(price) : null; // ✅ Convierte price a número o null
+  
+      console.log("Subiendo imagen con precio:", formattedPrice); // 🛠️ Depuración
+  
+      const response = await uploadImage(image, formattedPrice);
+      setResponse(response);
+      setLoading(false);
+  
+      navigate("/recomendation"); // Redirigir solo si no hay errores
+    } catch (error) {
+      console.error("Error al subir la imagen:", error);
+      setLoading(false);
+    }
   };
+  
+  
 
   return (
     <div className="upload-container">
@@ -88,9 +109,10 @@ const UploadImage = ({ selectedImage }) => {
         </div>
 
        
-        <button className="confirm-button" onClick={handleConfirmClick}>
-            Confirmar
-          </button>
+        {/* Un solo botón para subir la imagen y redirigir */}
+        <button className="confirm-button" onClick={handleUploadAndNavigate}>
+          Subir Imagen y Continuar
+        </button>
               </div>
 
               {/* Mostrar la imagen procesada desde el backend */}

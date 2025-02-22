@@ -11,7 +11,10 @@ export const uploadImage = async (base64Image) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ image: base64Image }),
+      body: JSON.stringify({ 
+        image: base64Image,
+        price: price || null // Enviar el precio
+      }),
     });
 
     if (!response.ok) throw new Error("Error al subir la imagen");

@@ -114,3 +114,29 @@
   color: #555;
   border-bottom: 2px solid #555;
 }
+
+.recommend-button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.recommend-button:hover {
+  background: #e0484d;
+  transform: scale(1.05);
+}
+
+.recommend-button:active {
+  background: #c93f44;
+  transform: scale(0.95);
+}
