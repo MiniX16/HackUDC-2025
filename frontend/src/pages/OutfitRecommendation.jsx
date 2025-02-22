@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/OutfitRecommendation.css";
 import { getProducts } from "../services/api";
 
 const OutfitRecommendation = () => {
     const { itemId } = useParams(); // Obtener el ID del producto seleccionado
+    const location = useLocation();
+    const { product } = location.state || {}; // Recibir la imagen original desde RecomendationPage
     const [recommendedItems, setRecommendedItems] = useState([]);
 
     useEffect(() => {
@@ -23,19 +25,33 @@ const OutfitRecommendation = () => {
 
     return (
         <div className="outfit-recommendation-container">
-            <h1>Outfit Recomendado</h1>
-            <div className="rows-container">
-                <div className="image-row">
-                    {recommendedItems.map((product, index) => (
+            <h1 className="title">Outfit Recomendado</h1>
+            {product && (
+                <div className="selected-product">
+                    <motion.img
+                        src={product.image}
+                        alt={product.name}
+                        className="selected-product-image"
+                    />
+                    <p className="selected-product-name">{product.name}</p>
+                    <p className="selected-product-price">{product.price} €</p>
+                </div>
+            )}
+            <div className="product-grid">
+                {recommendedItems.map((product, index) => (
+                    <div key={product.id || index} className="product-card">
                         <motion.img
-                            key={product.id || index}
                             src={product.image}
                             alt={product.name}
-                            className="scroll-image"
+                            className="product-image"
                             layoutId={`recommend-${index}`}
                         />
-                    ))}
-                </div>
+                        <div className="product-info">
+                            <p className="product-name">{product.name}</p>
+                            <p className="product-price">{product.price} €</p>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
