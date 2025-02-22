@@ -1,13 +1,21 @@
 from fastapi import APIRouter, HTTPException, Query
-from services.randomProducts_service import get_random_products
+from services.recommendation_service import get_recommendations_by_url
+from apis.inditex_api import search_products_by_image
 
-router = APIRouter()  # Asegúrate de definir el router aquí
+router = APIRouter()
 
-@router.get("/random-products/")
-async def get_random_products_endpoint(n: int = Query(..., gt=0)):
-    """Endpoint que devuelve n productos aleatorios del dataset"""
+@router.get("/recommendations/")
+async def get_recommendations_endpoint(image_url: str = Query(...)):
+    """Endpoint que obtiene recomendaciones basadas en una imagen"""
     try:
-        products = get_random_products(n)
-        return products
+        # Obtener información del producto desde Inditex API
+        base_product = search_products_by_image(image_url)
+
+        if not base_product:
+            raise HTTPException(status_code=404, detail="No se encontró el producto")
+
+        recommendations = get_recommendations_by_url(base_product)
+
+        return recommendations
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
