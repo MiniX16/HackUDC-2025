@@ -1,0 +1,132 @@
+[
+  {
+    "id": "364102053",
+    "name": "100% LINEN SHIRT",
+    "price": { "currency": "EUR", "value": { "current": 35.95 } },
+    "link": "https://www.zara.com/es/en/100-linen-shirt-p03090470.html?v1=364102053",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "shirt",
+    "color": "beige"
+  },
+  {
+    "id": "378292039",
+    "name": "SLIM FIT CHINO TROUSERS",
+    "price": { "currency": "EUR", "value": { "current": 45.95 } },
+    "link": "https://www.zara.com/es/en/slim-fit-chino-p04050632.html?v1=378292039",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "pants",
+    "color": "brown"
+  },
+  {
+    "id": "384020489",
+    "name": "LEATHER SNEAKERS",
+    "price": { "currency": "EUR", "value": { "current": 59.99 } },
+    "link": "https://www.zara.com/es/en/leather-sneakers-p06230420.html?v1=384020489",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "shoes",
+    "color": "black"
+  },
+  {
+    "id": "402103213",
+    "name": "WHITE BASIC T-SHIRT",
+    "price": { "currency": "EUR", "value": { "current": 19.95 } },
+    "link": "https://www.zara.com/es/en/white-basic-tshirt-p03922103.html?v1=402103213",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "shirt",
+    "color": "white"
+  },
+  {
+    "id": "412109874",
+    "name": "NAVY BLUE BLAZER",
+    "price": { "currency": "EUR", "value": { "current": 79.99 } },
+    "link": "https://www.zara.com/es/en/navy-blue-blazer-p04029874.html?v1=412109874",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "blazer",
+    "color": "navy"
+  },
+  {
+    "id": "428390214",
+    "name": "GREY SLIM FIT JEANS",
+    "price": { "currency": "EUR", "value": { "current": 49.95 } },
+    "link": "https://www.zara.com/es/en/grey-slim-fit-jeans-p03289104.html?v1=428390214",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "pants",
+    "color": "gray"
+  },
+  {
+    "id": "432109421",
+    "name": "BROWN LEATHER BELT",
+    "price": { "currency": "EUR", "value": { "current": 25.99 } },
+    "link": "https://www.zara.com/es/en/brown-leather-belt-p03890241.html?v1=432109421",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "accessory",
+    "color": "brown"
+  },
+  {
+    "id": "437192384",
+    "name": "BLACK SNEAKERS",
+    "price": { "currency": "EUR", "value": { "current": 59.95 } },
+    "link": "https://www.zara.com/es/en/black-sneakers-p03198234.html?v1=437192384",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "shoes",
+    "color": "black"
+  },
+  {
+    "id": "443981201",
+    "name": "RED HOODIE",
+    "price": { "currency": "EUR", "value": { "current": 39.95 } },
+    "link": "https://www.zara.com/es/en/red-hoodie-p03498121.html?v1=443981201",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "hoodie",
+    "color": "red"
+  },
+  {
+    "id": "451298310",
+    "name": "WHITE SNEAKERS",
+    "price": { "currency": "EUR", "value": { "current": 69.95 } },
+    "link": "https://www.zara.com/es/en/white-sneakers-p04512983.html?v1=451298310",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "shoes",
+    "color": "white"
+  },
+  {
+    "id": "460192340",
+    "name": "OLIVE GREEN CARGO PANTS",
+    "price": { "currency": "EUR", "value": { "current": 55.99 } },
+    "link": "https://www.zara.com/es/en/olive-green-cargo-pants-p04601923.html?v1=460192340",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "pants",
+    "color": "olive"
+  },
+  {
+    "id": "471209854",
+    "name": "NAVY BLUE SLIM FIT SHIRT",
+    "price": { "currency": "EUR", "value": { "current": 29.99 } },
+    "link": "https://www.zara.com/es/en/navy-blue-slim-fit-shirt-p04712098.html?v1=471209854",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "shirt",
+    "color": "navy"
+  },
+  {
+    "id": "480129012",
+    "name": "TAN CHELSEA BOOTS",
+    "price": { "currency": "EUR", "value": { "current": 89.99 } },
+    "link": "https://www.zara.com/es/en/tan-chelsea-boots-p04801290.html?v1=480129012",
+    "brand": "zara",
+    "image_base64": "/9j/4AAQSk...",
+    "category": "shoes",
+    "color": "tan"
+  }
+]
