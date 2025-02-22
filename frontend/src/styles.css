@@ -1,21 +1,164 @@
-nav {
-  background: #007bff;
-  padding: 10px;
+/* Estilo general */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f1eb;
+  overflow: hidden;
+}
+
+/* Contenedor principal */
+.intro-container {
   text-align: center;
+  position: relative;
+  min-height: 100vh;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 10px;
+/* Logo */
+.logo {
+  font-size: 2rem;
   font-weight: bold;
+  margin-top: 20px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 2;
 }
 
-button {
-  margin-top: 10px;
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px;
+/* Fondo animado */
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Filas de imágenes */
+.image-row {
+  display: flex;
+  white-space: nowrap;
+  width: 100vw;
+  gap: 20px;
+  padding: 10px 0;
+  overflow-x: scroll;
+  scrollbar-width: none; /* Ocultar scrollbar en Firefox */
+  -ms-overflow-style: none; /* Ocultar scrollbar en Edge */
+}
+
+/* Ocultar scrollbar en Chrome */
+.image-row::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+/* Animaciones para las filas */
+.row-1 {
+  animation: move-left 20s linear infinite;
+}
+.row-2 {
+  animation: move-right 20s linear infinite;
+}
+.row-3 {
+  animation: move-left 20s linear infinite;
+}
+
+/* Imágenes en movimiento */
+.moving-image {
+  width: 240px;
+  height: auto;
+  margin: 0 15px;
   cursor: pointer;
+  opacity: 0.8;
+  transition: transform 0.3s ease-in-out;
+}
+
+.moving-image:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Animaciones */
+@keyframes move-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes move-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Contenedor de UploadImage */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* Caja de subida */
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upload-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+/* Área de subida */
+.upload-area {
+  border: 2px dashed #666;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #555;
+}
+
+.upload-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.file-input {
+  display: none;
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 10px;
 }

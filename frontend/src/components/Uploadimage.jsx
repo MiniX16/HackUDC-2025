@@ -1,8 +1,14 @@
-import { useState } from "react";
-import "./UploadImage.css"; // Importamos los estilos CSS
+import { useState, useEffect } from "react";
+import "../styles.css";
 
-const UploadImage = () => {
+const UploadImage = ({ selectedImage }) => {
   const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    if (selectedImage) {
+      setImage(selectedImage);
+    }
+  }, [selectedImage]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -12,7 +18,7 @@ const UploadImage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="upload-container">
       <div className="upload-box">
         <h2 className="title">SUBE TU FOTO</h2>
         <label className="upload-area" htmlFor="upload">
