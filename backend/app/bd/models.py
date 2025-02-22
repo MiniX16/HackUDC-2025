@@ -5,10 +5,11 @@ class Product(Base):
     __tablename__ = "products"
 
     id = Column(String, primary_key=True, index=True)
-    name = Column(String, index=True)
+    name = Column(String)
     price = Column(Float, index=True)
     currency = Column(String)
-    link = Column(String, unique=True, index=True)
+    description = Column(String, nullable = True)
+    link = Column(String, unique=True)
     brand = Column(String)
     image_base64 = Column(String)
     category = Column(String, index=True)

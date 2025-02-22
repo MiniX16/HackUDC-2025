@@ -1,21 +1,32 @@
-from fastapi import APIRouter, HTTPException, Query
-from services.recommendation_service import get_recommendations_by_url
-from apis.inditex_api import search_products_by_image
+from fastapi import APIRouter, HTTPException
+from services.recommendation_service import get_recommendations_by_id
+from bd.crud import get_product_by_id
+from bd.database import SessionLocal
 
 router = APIRouter()
 
+# Categorías principales para completar un outfit
+MAIN_CATEGORIES = ["shirt", "jacket", "pants", "shoes", "accessory", "coat"]
+
 @router.get("/recommendations/")
-async def get_recommendations_endpoint(image_url: str = Query(...)):
-    """Endpoint que obtiene recomendaciones basadas en una imagen"""
-    try:
-        # Obtener información del producto desde Inditex API
-        base_product = search_products_by_image(image_url)
+async def get_recommendations_endpoint(id: int):
+    """Endpoint que obtiene recomendaciones basadas en un producto en la BD"""
+    with SessionLocal() as db:
+        base_product = get_product_by_id(db, id)  # Buscar en la BD por ID
 
         if not base_product:
-            raise HTTPException(status_code=404, detail="No se encontró el producto")
+            raise HTTPException(status_code=404, detail="No se encontró el producto en la BD")
 
-        recommendations = get_recommendations_by_url(base_product)
+        base_category = base_product.category
 
-        return recommendations
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        # Determinar qué categorías incluir en la recomendación
+        if base_category in MAIN_CATEGORIES:
+            # Si el producto pertenece a una categoría clave, excluimos esa y tomamos las demás
+            categories_to_include = [cat for cat in MAIN_CATEGORIES if cat != base_category]
+        else:
+            # Si el producto no pertenece a ninguna categoría clave, usamos todas
+            categories_to_include = MAIN_CATEGORIES
+
+        recommendations = get_recommendations_by_id(db, base_product, categories_to_include)
+
+    return recommendations
