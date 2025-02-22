@@ -55,19 +55,6 @@ body {
   display: none;
 }
 
-
-
-/* Animaciones para las filas */
-.row-1 {
-  animation: move-left 20s linear infinite;
-}
-.row-2 {
-  animation: move-right 20s linear infinite;
-}
-.row-3 {
-  animation: move-left 20s linear infinite;
-}
-
 /* Imágenes en movimiento */
 .moving-image {
   width: 240px;
@@ -81,25 +68,6 @@ body {
 .moving-image:hover {
   transform: scale(1.1);
   opacity: 1;
-}
-
-/* Animaciones */
-@keyframes move-left {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes move-right {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(100%);
-  }
 }
 
 /* Contenedor de UploadImage */
@@ -163,3 +131,4 @@ body {
   border-radius: 6px;
   margin-top: 10px;
 }
+
