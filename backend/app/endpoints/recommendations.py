@@ -6,7 +6,7 @@ from bd.database import SessionLocal
 router = APIRouter()
 
 # Categorías principales para completar un outfit
-MAIN_CATEGORIES = ["shirt", "jacket", "pants", "shoes", "accessory", "coat"]
+MAIN_CATEGORIES = ["t-shirt", "jacket", "pants", "shoes", "coat"]
 
 @router.get("/recommendations/")
 async def get_recommendations_endpoint(id: int):

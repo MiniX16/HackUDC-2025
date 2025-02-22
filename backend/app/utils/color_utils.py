@@ -18,7 +18,7 @@ color_harmony = {
     "turquoise": ["white", "tan", "brown"],
 
     # Verdes
-    "olive": ["brown", "black", "gray", "beige", "tan"],
+    "olive green": ["brown", "black", "gray", "beige", "tan"],
     "khaki": ["white", "brown", "beige", "black"],
     "emerald": ["black", "gold", "white"],
     "dark green": ["brown", "black", "gray", "gold"],
