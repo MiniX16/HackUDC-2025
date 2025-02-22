@@ -38,7 +38,7 @@ def get_recommendations_by_url(product_url):
     for product in compatible_products:
         category = product["category"]
         if category not in selected_recommendations:
-            selected_recommendations[category] = product  # Guardamos solo el primer producto de cada categoría
+            selected_recommendations[category] = product
 
     # Rellenar las categorías faltantes con opciones neutras del dataset
     for required_category in REQUIRED_CATEGORIES:
@@ -46,6 +46,6 @@ def get_recommendations_by_url(product_url):
             for product in dataset:
                 if product["category"] == required_category:
                     selected_recommendations[required_category] = product
-                    break  # Solo necesitamos un producto por categoría
+                    break
 
     return list(selected_recommendations.values())  # Devolvemos los productos seleccionados
