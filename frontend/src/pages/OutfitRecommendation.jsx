@@ -30,12 +30,15 @@ const OutfitRecommendation = () => {
             <div className="product-grid">
                 {recommendedItems.map((product, index) => (
                     <div key={product.id || index} className="product-card">
-                        <motion.img
-                            src={product.image}
-                            alt={product.name}
-                            className="product-image"
-                            layoutId={`recommend-${index}`}
-                        />
+                        
+                        <a href={product.link} target="_blank" rel="noopener noreferrer">
+                            <motion.img
+                                src={product.image}
+                                alt={product.name}
+                                className="product-image"
+                                layoutId={`recommend-${index}`}
+                            />
+                        </a>
                         <div className="product-info">
                             <p className="product-name">{product.name}</p>
                             <p className="product-price">{product.price} €</p>

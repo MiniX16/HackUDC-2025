@@ -43,6 +43,7 @@ const RecomendationPage = () => {
     damping: 30,
     restDelta: 0.001,
   });
+  const navigate = useNavigate();
 
   const location = useLocation();
   const { response } = location.state || {};
@@ -56,6 +57,9 @@ const RecomendationPage = () => {
 
   return (
     <div id="example" className="scroll-container" ref={containerRef}>
+      <h1 className="logo" onClick={() => navigate('/')}>INDEEPTEX</h1>
+      {/* Botón de cierre en la esquina superior derecha */}
+      <button className="close-button" onClick={() => navigate('/')}>X</button>
       {rowImages.map((product) => (
         <Image key={product.id} product={product} />
       ))}

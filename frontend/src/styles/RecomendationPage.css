@@ -111,3 +111,38 @@ html, body {
 .outfit-button:active::before {
   transform: scaleX(1);
 }
+
+/* Para navegadores basados en Webkit (Chrome, Safari, Edge) */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Para Firefox */
+.scroll-container {
+  scrollbar-width: none;
+}
+
+/* Para Internet Explorer y Edge */
+.scroll-container {
+  -ms-overflow-style: none;
+}
+
+/* CSS a añadir en RecomendationPage.css */
+.close-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+  z-index: 9999; /* Asegurar que está sobre todo */
+}
+
+
+.close-button:hover {
+  color: #ff0000;
+}
