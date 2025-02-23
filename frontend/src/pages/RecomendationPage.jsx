@@ -49,7 +49,11 @@ const RecomendationPage = () => {
 
 
   useEffect(() => {
+<<<<<<< Updated upstream
     if (response ) {
+=======
+    if (response) {
+>>>>>>> Stashed changes
       setRowImages(response);
     }
   }, [response]);

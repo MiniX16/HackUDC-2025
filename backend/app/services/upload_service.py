@@ -21,7 +21,7 @@ def process_upload(image_base64, price):
         sc_product = scrape_zara(html)
         if sc_product["Imagen Prenda Base64"] != "No encontrado":
             scrapped_prod.append(sc_product)
-        if len(scrapped_prod) >= 3:
+        if len(scrapped_prod) >= 1:
             break
 
     return [{
@@ -35,4 +35,4 @@ def process_upload(image_base64, price):
         "category": sc_prod["Categoría"],
         "color": sc_prod["Color"]
         }
-    for prod, sc_prod in zip(filtered_products[:3], scrapped_prod[:3])]
+    for prod, sc_prod in zip(filtered_products[:1], scrapped_prod[:1])]

@@ -60,9 +60,15 @@ export const uploadImage = async (base64Image, price) => {
 };
 
 // Procesar una imagen ya existente en base64
+<<<<<<< Updated upstream
 export const processImage = async (color , categories) => {
   try {
     const response = await fetch(`${API_URL}recommendations/?color=${color}&&categories=${categories}`, {
+=======
+export const processImage = async (color,category) => {
+  try {
+    const response = await fetch(`${API_URL}recommendations/?color=${color} && category=${category}`, {
+>>>>>>> Stashed changes
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -72,11 +78,33 @@ export const processImage = async (color , categories) => {
 
     if (!response.ok) throw new Error("Error al procesar la imagen");
 
-    const data = await response.json();
-    return data; // Retorna la imagen procesada en base64
+    return data
+      .filter(product => {
+        try {
+          const imageUrl = `data:image/jpeg;base64,${product.image_base64}`;
+          // Intentar crear un objeto URL para verificar si es válido
+          new URL(imageUrl);
+          return true;
+        } catch (e) {
+          console.error(`Error al convertir la imagen del producto ${product.id}:`, e);
+          return false;
+        }
+      })
+      .map(product => ({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        currency: product.currency,
+        description: product.description,
+        link: product.link,
+        brand: product.brand,
+        categories: product.categories,
+        color: product.color,
+        image: `data:image/jpeg;base64,${product.image_base64}`
+      }));
   } catch (error) {
-    console.error("Error en processImage:", error);
-    return null;
+    console.error("Error en uploadImage:", error);
+    return [];
   }
 };
 
