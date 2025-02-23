@@ -16,17 +16,24 @@ def process_upload(image_base64, price):
     ]
 
     scrapped_prod = []
+    valid_products = []  # Lista para productos que sí tienen imagen
+
     for prod in filtered_products:
         html = get_html(prod["link"])
         sc_product = scrape_zara(html)
+
+        # Si la imagen no se encuentra, se omite el producto
         if sc_product["Imagen Prenda Base64"] != "No encontrado":
             scrapped_prod.append(sc_product)
-        if len(scrapped_prod) >= 3:
-            break
+            valid_products.append(prod)  # Solo añadimos el producto si tiene imagen
+
+        if len(valid_products) >= 3:
+            break  # Limitamos la lista a los 3 primeros productos válidos
 
     return [{
         "id": prod["id"],
         "name": sc_prod["Nombre"],
+        "price": prod["price"]["value"]["current"],
         "currency": prod["price"]["currency"],
         "description": sc_prod["Descripción"],
         "link": prod["link"],
@@ -34,5 +41,5 @@ def process_upload(image_base64, price):
         "image_base64": sc_prod["Imagen Prenda Base64"],
         "category": sc_prod["Categoría"],
         "color": sc_prod["Color"]
-        }
-    for prod, sc_prod in zip(filtered_products[:3], scrapped_prod[:3])]
+    }
+    for prod, sc_prod in zip(valid_products, scrapped_prod)]
