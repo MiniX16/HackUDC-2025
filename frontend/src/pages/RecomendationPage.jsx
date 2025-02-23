@@ -16,12 +16,14 @@ const Image = ({ product }) => {
 
   return (
     <motion.div ref={ref} className="img-container" style={{ y }}>
-      <motion.img
-        src={product.image}
-        alt={product.name}
-        className="scroll-image"
-        layoutId={`modal-${product.id}`}
-      />
+      <a href={product.link} target="_blank" rel="noopener noreferrer">
+        <motion.img
+          src={product.image}
+          alt={product.name}
+          className="scroll-image"
+          layoutId={`modal-${product.id}`}
+        />
+      </a>
       <div className="overlay">
         <a href={product.link} target="_blank" rel="noopener noreferrer" className="product-link">
           <p>{product.name}</p>
