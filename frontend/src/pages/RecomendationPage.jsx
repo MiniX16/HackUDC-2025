@@ -28,7 +28,7 @@ const Image = ({ product }) => {
         </a>
         <p>{product.price} €</p>
         <p>{product.brand}</p>
-        <button className="outfit-button" onClick={() => navigate("/outfit-recommendation/:${selectedImage.id}")}>Crear Outfit</button>
+        <button className="outfit-button" onClick={() => navigate("/outfit-recommendation/", {state: {product}})}>Crear Outfit</button>
       </div>
     </motion.div>
   );

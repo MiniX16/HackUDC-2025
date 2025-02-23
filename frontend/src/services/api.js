@@ -60,9 +60,9 @@ export const uploadImage = async (base64Image, price) => {
 };
 
 // Procesar una imagen ya existente en base64
-export const processImage = async () => {
+export const processImage = async (color , categories) => {
   try {
-    const response = await fetch(`${API_URL}recommendations/`, {
+    const response = await fetch(`${API_URL}recommendations/?color=${color}&&categories=${categories}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

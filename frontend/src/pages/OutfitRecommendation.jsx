@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/OutfitRecommendation.css";
-import { getProducts } from "../services/api";
+import { processImage } from "../services/api";
 
 const OutfitRecommendation = () => {
-    const { itemId } = useParams(); // Obtener el ID del producto seleccionado
     const location = useLocation();
     const { product } = location.state || {}; // Recibir la imagen original desde RecomendationPage
     const [recommendedItems, setRecommendedItems] = useState([]);
@@ -13,7 +12,7 @@ const OutfitRecommendation = () => {
     useEffect(() => {
         const fetchRecommendations = async () => {
             try {
-                const products = await getProducts(10); // Obtener 10 productos recomendados
+                const products = await processImage(product.color, product.categories) // Obtener 10 productos recomendados
                 setRecommendedItems(products);
             } catch (error) {
                 console.error("Error obteniendo recomendaciones:", error);
@@ -21,7 +20,7 @@ const OutfitRecommendation = () => {
         };
         
         fetchRecommendations();
-    }, [itemId]);
+    }, []);
 
     return (
         <div className="outfit-recommendation-container">
