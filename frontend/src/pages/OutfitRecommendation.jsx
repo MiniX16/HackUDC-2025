@@ -13,6 +13,7 @@ const OutfitRecommendation = () => {
         const fetchRecommendations = async () => {
             try {
                 const products = await processImage(product.color, product.categories) // Obtener 10 productos recomendados
+                console.log(products)
                 setRecommendedItems(products);
             } catch (error) {
                 console.error("Error obteniendo recomendaciones:", error);
@@ -25,17 +26,7 @@ const OutfitRecommendation = () => {
     return (
         <div className="outfit-recommendation-container">
             <h1 className="title">Outfit Recomendado</h1>
-            {product && (
-                <div className="selected-product">
-                    <motion.img
-                        src={product.image}
-                        alt={product.name}
-                        className="selected-product-image"
-                    />
-                    <p className="selected-product-name">{product.name}</p>
-                    <p className="selected-product-price">{product.price} €</p>
-                </div>
-            )}
+            
             <div className="product-grid">
                 {recommendedItems.map((product, index) => (
                     <div key={product.id || index} className="product-card">

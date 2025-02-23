@@ -72,6 +72,8 @@ export const processImage = async (color , categories) => {
 
     if (!response.ok) throw new Error("Error al procesar la imagen");
 
+    const data = await response.json();
+
     return data
       .filter(product => {
         try {
