@@ -146,3 +146,20 @@ html, body {
 .close-button:hover {
   color: #ff0000;
 }
+
+/* CSS a añadir en RecomendationPage.css */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  z-index: 9999; /* Asegura que está por encima de todo */
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #ff0000;
+}

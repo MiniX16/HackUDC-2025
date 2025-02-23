@@ -22,7 +22,6 @@ body {
   top: 10px;
   left: 20px;
   z-index: 2;
-  /* pointer-events: none;*/
 }
 
 /* Fondo */
@@ -45,7 +44,9 @@ body {
   width: 300%;
   gap: 20px;
   padding: 10px 0;
-  overflow-x: hidden;
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Ocultar scrollbar en todos los navegadores */
