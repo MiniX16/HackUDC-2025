@@ -1,11 +1,12 @@
-import axios from "axios";
-
 const API_URL = "http://localhost:8000/";
 
 
 // Enviar imagen en base64 al backend
 export const uploadImage = async (base64Image, price) => {
   try {
+    const base64i = base64Image.split(",")[1];
+    console.log("base64Image", base64i);
+
     const response = await fetch(`${API_URL}api/upload-image/`, {
       method: "POST",
       headers: {
@@ -13,7 +14,7 @@ export const uploadImage = async (base64Image, price) => {
       },
       body: JSON.stringify({ 
         price: price , // Enviar el precio
-        image_base64: base64Image,
+        image_base64: base64i,
       }),
     });
 

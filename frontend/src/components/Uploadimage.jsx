@@ -23,8 +23,8 @@ const UploadImage = ({ selectedImage }) => {
       setLoading(true);
       const base64 = await convertToBase64(file);
       setImage(base64);
-      console.log(base64);
 
+      
       const response = await uploadImage(base64);
       setResponse(response);
       setLoading(false);
