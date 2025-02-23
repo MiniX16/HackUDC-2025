@@ -33,5 +33,4 @@ def get_products_by_category(db: Session, category: str):
     return db.query(Product).filter(Product.category == category).all()
 
 def get_product_by_id(db: Session, product_id: str):
-    """Obtiene un producto por su ID."""
     return db.query(Product).filter(Product.id == product_id).first()

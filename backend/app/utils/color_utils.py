@@ -1,51 +1,63 @@
 color_harmony = {
-    # Neutrales
-    "beige": ["brown", "black", "white", "tan", "olive"],
-    "brown": ["beige", "olive", "dark green", "tan", "burgundy"],
-    "black": ["white", "gray", "navy", "red", "charcoal"],
-    "white": ["black", "beige", "blue", "gray", "tan"],
-    "gray": ["black", "white", "blue", "charcoal", "olive"],
-    "charcoal": ["gray", "black", "navy", "olive"],
-    "tan": ["blue", "white", "black", "brown", "beige"],
-    "sand": ["white", "olive", "brown", "tan"],
-
-    # Azules
-    "navy": ["white", "gray", "black", "beige", "burgundy"],
-    "blue": ["white", "gray", "tan", "black", "brown"],
-    "sky blue": ["white", "beige", "gray", "navy"],
-    "denim": ["white", "gray", "black", "tan"],
-    "cobalt": ["black", "gray", "white"],
-    "turquoise": ["white", "tan", "brown"],
-
-    # Verdes
-    "olive green": ["brown", "black", "gray", "beige", "tan"],
-    "khaki": ["white", "brown", "beige", "black"],
-    "emerald": ["black", "gold", "white"],
-    "dark green": ["brown", "black", "gray", "gold"],
-    "mint": ["white", "gray", "navy"],
-
-    # Rojos y Rosados
-    "red": ["black", "gray", "white", "navy"],
-    "burgundy": ["black", "navy", "white", "gray", "beige"],
-    "maroon": ["black", "white", "gray", "tan"],
-    "crimson": ["black", "gray", "white"],
-    "coral": ["white", "gray", "beige", "tan"],
-    "pink": ["white", "gray", "tan", "navy"],
-
-    # Amarillos y Dorados
-    "yellow": ["navy", "gray", "black", "brown"],
-    "gold": ["black", "brown", "white", "burgundy"],
-    "mustard": ["black", "gray", "brown", "white"],
-
-    # Naranjas
-    "orange": ["white", "gray", "black", "brown"],
-    "rust": ["white", "tan", "black", "olive"],
-
-    # Púrpuras
-    "purple": ["gray", "black", "white"],
-    "lilac": ["white", "gray", "tan", "navy"],
-    "violet": ["black", "white", "gray"]
+    "anthracite grey": ["grey", "dark brown", "navy blue", "black", "white"],
+    "black": ["burgundy", "olive green", "grey marl", "white"],
+    "burgundy": ["navy blue", "tobacco brown", "grey", "black"],
+    "olive green": ["khaki", "brown", "burnt orange", "white"],
+    "khaki": ["olive green", "tobacco brown", "camel", "black"],
+    "ecru": ["light beige", "sand", "pale pink", "black"],
+    "grey / beige": ["light grey", "camel", "earth", "white"],
+    "yellow": ["brown", "red / orange", "burnt orange", "black"],
+    "grey marl": ["dark grey", "navy blue", "mid-camel", "white"],
+    "light beige": ["camel", "light blue", "mid-ecru", "black"],
+    "light grey": ["grey marl", "mid-blue", "dark anthracite", "white"],
+    "burnt orange": ["olive green", "tobacco brown", "earth", "black"],
+    "light blue": ["navy blue", "mid-blue", "white/turquoise", "black"],
+    "white": ["light grey", "ecru", "beige", "black"],
+    "grey / tan": ["tobacco brown", "sand", "light camel", "white"],
+    "pink": ["pale pink", "mauve", "ecru", "black"],
+    "ecru / black": ["grey", "brown vigore", "sand", "white"],
+    "grey": ["dark grey", "earth", "camel", "black", "white"],
+    "tobacco brown": ["khaki", "burnt orange", "camel", "black"],
+    "sand / marl": ["light beige", "pale pink", "camel", "white"],
+    "navy blue": ["mid-blue", "burgundy", "grey marl", "black", "white"],
+    "green": ["olive green", "earth", "lime", "black"],
+    "camel": ["khaki", "tobacco brown", "light camel", "white"],
+    "wine": ["burgundy", "mid-blue", "mauve", "black"],
+    "oyster-white": ["light beige", "ecru", "mid-ecru", "black"],
+    "blue": ["mid-blue", "light blue", "white/turquoise", "black"],
+    "brown vigore": ["dark brown", "sand", "earth", "white"],
+    "sea green": ["mid-blue", "green", "oyster-white", "black"],
+    "brown": ["earth", "camel", "olive green", "black"],
+    "pale pink": ["mauve", "light beige", "sand", "black"],
+    "mid khaki": ["khaki", "earth", "chocolate brown", "white"],
+    "chocolate brown": ["dark brown", "tobacco brown", "camel", "black"],
+    "earth": ["burnt orange", "grey", "brown", "white"],
+    "red": ["burgundy", "dark russet", "red / orange", "black", "white"],
+    "dark russet": ["red", "burnt orange", "brown", "black"],
+    "chocolate": ["chocolate brown", "camel", "tobacco brown", "white"],
+    "caramel": ["mid-camel", "sand", "burnt orange", "black"],
+    "mid-ecru": ["ecru", "light beige", "sand", "black"],
+    "light khaki": ["khaki", "mid khaki", "earth", "white"],
+    "ecru / blue": ["blue", "white/turquoise", "mid-blue", "black"],
+    "multicoloured": ["white/turquoise", "mauve", "red / white", "black"],
+    "light camel": ["camel", "tobacco brown", "mid-ecru", "white"],
+    "dark grey": ["anthracite grey", "grey marl", "mid-camel", "black"],
+    "beige": ["ecru", "light beige", "oyster-white", "black"],
+    "brown / taupe": ["mid-camel", "light camel", "sand", "white"],
+    "mid-camel": ["camel", "caramel", "earth", "black"],
+    "dark brown": ["chocolate brown", "brown vigore", "tobacco brown", "white"],
+    "dark anthracite": ["anthracite grey", "dark grey", "grey marl", "black"],
+    "lime": ["sea green", "green", "mid-blue", "white"],
+    "red / orange": ["red", "burnt orange", "dark russet", "black"],
+    "sand": ["caramel", "mid-ecru", "beige", "white"],
+    "red / white": ["red", "white/turquoise", "blue", "black"],
+    "mid-blue": ["navy blue", "light blue", "blue", "black"],
+    "reddish": ["burgundy", "red", "dark russet", "white"],
+    "white/turquoise": ["mid-blue", "ecru / blue", "multicoloured", "black"],
+    "mauve": ["pale pink", "wine", "pink", "black"]
 }
+
+
 
 def get_matching_colors(color):
     """Devuelve los colores compatibles con la armonía definida."""
