@@ -49,8 +49,8 @@ const RecomendationPage = () => {
 
 
   useEffect(() => {
-    if (response && response.products) {
-      setRowImages(response.products);
+    if (response ) {
+      setRowImages(response);
     }
   }, [response]);
 
